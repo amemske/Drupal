@@ -1,0 +1,16 @@
+<?php
+/**
+ * Implementation of hook form alter
+ */
+
+function mymodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if( $form_id == 'comment_comment_form'){
+      $form['actions']['submit']['#value'] = t('Comment');
+      $form['terms_of_use'] = [
+          '#type' => 'checkbox',
+          '#title' => t("I agree with the website's terms and conditions."),
+          '#required' => TRUE,
+        ];
+  }
+  //use print_r($form_id) to check id name
+}
